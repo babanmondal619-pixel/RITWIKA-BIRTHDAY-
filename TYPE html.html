@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Ritwika!</title>
+    <style>
+        /* Import Elegant Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap');
+
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fdfbf7;
+            color: #333;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Confetti Canvas */
+        #confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            padding: 20px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: #d81b60;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: fadeInDown 1.5s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 600px;
+            animation: fadeInUp 1.5s ease;
+        }
+
+        /* Music Section */
+        .music-section {
+            padding: 60px 20px;
+            background-color: #fafafa;
+            text-align: center;
+        }
+
+        .music-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .music-player-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 2px solid #f8bbd0;
+        }
+
+        .music-section p {
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        /* Message Section */
+        .message-section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .message-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .message-card {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 5px solid #d81b60;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 80px 20px;
+            background-color: #fafafa;
+            text-align: center;
+        }
+
+        .gallery-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #fff;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            padding: 15px;
+            font-style: italic;
+            color: #888;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .gallery-item img { height: 350px; }
+            .music-player-container { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="confetti"></canvas>
+
+    <section class="hero">
+        <h1>Happy Birthday, Ritwika! 🎂</h1>
+        <p>A beautiful website for a beautiful sister. Let's make this day special!</p>
+    </section>
+
+    <section id="music" class="music-section">
+        <h2>A Melody For Didi</h2>
+        <div class="music-player-container">
+            <p>I picked this special music just for you. Click play to listen while you browse!</p>
+            <audio controls loop style="width: 100%;">
+                <source src="https://youtu.be/DGVJtAHzzDQ?list=RDDGVJtAHzzDQ" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </section>
+
+    <section class="message-section">
+        <h2>A Special Message For You</h2>
+        <div class="message-card">
+            <p>Dear Didi,<br><br>
+            Thank you for always being my guide, my protector, and my biggest inspiration. You carry yourself with such grace, and I am so lucky to have you as my elder sister. <br><br>
+            May this coming year bring you all the success, joy, and love you truly deserve. This website is just a small token to show you how much you mean to me. Let's celebrate you today!</p>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <h2>Beautiful Memories</h2>
+        <div class="gallery-grid">
+            
+            <div class="gallery-item">
+                <img src="WhatsApp Image 2026-04-01 at 4.08.07 PM (1).png" alt="Ritwika in a green saree">
+                <div class="gallery-caption">Absolutely Stunning ✨</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="Gemini_Generated_Image_cj7z69cj7z69cj7z.jpg" alt="Ritwika cutting a birthday cake">
+                <div class="gallery-caption">Birthday Celebrations! 🎂</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="WhatsApp Image 2026-04-01 at 4.08.07 PM (2).jpeg" alt="Ritwika in a black saree">
+                <div class="gallery-caption">Pure Elegance 🖤</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="WhatsApp Image 2026-04-01 at 4.08.07 PM.jpeg" alt="A creative collage of Ritwika and a friend">
+                <div class="gallery-caption">A Creative Twist 🤍</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="whatsapp image 2026-04-18 at 4.14.07 pm.jpeg" alt="Ritwika and a friend making a peace sign">
+                <div class="gallery-caption">Selfie Time! ✌️</div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>Made with ❤️ for my lovely sister, Ritwika.</p>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('confetti');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const pieces = [];
+        const colors = ['#d81b60', '#f48fb1', '#ffb300', '#1e88e5', '#43a047'];
+
+        function createPiece() {
+            return {
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height - canvas.height,
+                size: Math.random() * 10 + 5,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                speedY: Math.random() * 3 + 2,
+                speedX: Math.random() * 2 - 1,
+                rotation: Math.random() * 360,
+                rotationSpeed: Math.random() * 10 - 5
+            };
+        }
+
+        for (let i = 0; i < 150; i++) {
+            pieces.push(createPiece());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            pieces.forEach(p => {
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate((p.rotation * Math.PI) / 180);
+                ctx.fillStyle = p.color;
+                ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                ctx.restore();
+
+                p.y += p.speedY;
+                p.x += p.speedX;
+                p.rotation += p.rotationSpeed;
+
+                if (p.y > canvas.height) {
+                    p.y = -p.size;
+                    p.x = Math.random() * canvas.width;
+                }
+            });
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
